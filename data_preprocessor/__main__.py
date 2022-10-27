@@ -1,7 +1,6 @@
-from data_preprocessor import clean_dataframe
-from data_preprocessor import normalize_dataframe
-from data_preprocessor import get_mongo_raw_depression_df
-from data_preprocessor import upload_mongo_preprocessed_df
+from data_cleaner import clean_dataframe
+from data_normalizer import normalize_dataframe
+from mongo_connector import get_mongo_raw_depression_df, upload_mongo_preprocessed_df
 
 
 DATASET_PATH = '../resources/data/Depressive data.xlsx'

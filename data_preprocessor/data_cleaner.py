@@ -16,7 +16,7 @@ def clean_dataframe(depression_data_df):
             # -- remove 'bad' records
 
             # remove records with unrealistic age
-            if not pd.isnull(data_row['age']) and int(data_row['age']) > 100:
+            if not str(data_row['age']).strip() == '' and int(data_row['age']) > 100:
                 depression_data_df.drop(idx, inplace=True)
                 continue
 
