@@ -1,7 +1,8 @@
 import pandas as pd
 from pymongo import MongoClient
+from datetime import datetime
 
-CONNECTION_STRING = "0.05(6)"
+CONNECTION_STRING = ":( we were hacked because of this don't do this"
 
 
 def get_mongo_raw_depression_df(do_remove_id=True):
@@ -16,3 +17,11 @@ def get_mongo_raw_depression_df(do_remove_id=True):
 
     return dataframe
 
+
+def upload_mongo_preprocessed_df(dataframe):
+    client = MongoClient(CONNECTION_STRING)
+    db = client['depression']
+    collection_name = f'preprocessed_depression_data_{datetime.now().strftime("%d_%m_%Y_%H_%M_%S")}'
+    preprocessed_data_collection = db[collection_name]
+    inserted_json = dataframe.to_dict('records')
+    preprocessed_data_collection.insert_many(inserted_json)
