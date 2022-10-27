@@ -1,6 +1,6 @@
 import pandas as pd
 import re
-from spell_checker import fix_typos
+# from spell_checker import fix_typos
 
 from alive_progress import alive_bar
 import time
