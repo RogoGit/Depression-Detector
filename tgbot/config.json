@@ -1,0 +1,5 @@
+{
+    "token":"tgtoken",
+    "connStr":"mongodb://user:pswd@fly.sytes:27017/depression?retryWrites=true&w=majority",
+    "accessorsDTb": "depression_data_accessors"
+}
