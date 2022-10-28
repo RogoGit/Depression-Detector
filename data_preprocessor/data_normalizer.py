@@ -18,7 +18,7 @@ def normalize_dataframe(depression_data_df):
             tokens = mystem.lemmatize(str(data_row['text']).lower())
             tokens = [token for token in tokens if token not in russian_stopwords and token != " "]
             normalized_text = " ".join(tokens)
-            depression_data_df.at[idx, 'text'] = normalized_text
+            depression_data_df.at[idx, 'text'] = normalized_text.rstrip()
             bar()
 
     print("Finished normalization")
