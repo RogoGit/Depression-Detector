@@ -1,8 +1,9 @@
 import pandas as pd
 from pymongo import MongoClient
 from datetime import datetime
+import urllib.parse
 
-CONNECTION_STRING = ":( we were hacked because of this don't do this"
+CONNECTION_STRING = "mongodb://user:" + urllib.parse.quote("pass") + "@host:port/database?retryWrites=true&w=majority"
 
 
 def get_mongo_raw_depression_df(do_remove_id=True):
