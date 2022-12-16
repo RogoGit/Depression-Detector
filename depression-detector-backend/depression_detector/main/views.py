@@ -1,4 +1,5 @@
 import copy
+from datetime import datetime
 
 from rest_framework import viewsets, status
 from rest_framework.response import Response
@@ -21,6 +22,24 @@ class ModelViewSet(viewsets.ModelViewSet):
         serializer.is_valid(raise_exception=True)
         self.perform_create(serializer=serializer)
         headers = self.get_success_headers(serializer.data)
+
+        date_of_birth = datetime.strptime(data['date_of_birth'], '%Y-%m-%d')
+        all_models = Model.objects.filter(date_of_birth__year=date_of_birth.year)
+
+        all_sum = 0
+        depressive_sum = 0
+        non_depressive_sum = 0
+
+        for x in all_models:
+            all_sum += 1
+            if x.depression_detection_result == 'DEPRESSIVE':
+                depressive_sum += 1
+            if x.depression_detection_result == 'NON-DEPRESSIVE':
+                non_depressive_sum += 1
+
+        data = copy.deepcopy(serializer.data)
+        data['depressive_text_amount'] = depressive_sum / all_sum
+        data['non_depressive_text_amount'] = non_depressive_sum / all_sum
 
         return Response(
             serializer.data,
