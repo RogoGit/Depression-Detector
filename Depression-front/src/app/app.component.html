@@ -1,0 +1,68 @@
+<app-header></app-header>
+<!-- <mat-drawer-container class="drawer-container" autosize>  
+  <mat-drawer #drawer class="drawer-side side-shadow" mode="over" role="navigation">
+    <div [ngSwitch]='getUserRole()' class="side-contents">
+      <ng-template ngSwitchCase="Менеджер">
+        <div class="side-header">
+          <div><h2> Разделы </h2></div>
+          <div style="float:right;"><mat-icon style="font-size: 30px; cursor: pointer;" (click)="drawer.toggle()" [inline]="true">arrow_back_ios</mat-icon></div>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="side-link">
+          <a (click)="drawer.toggle()" class="nav-link text-dark" [routerLink]="['/clients']">Клиенты</a>
+        </div>
+        <div class="side-link">
+          <a (click)="drawer.toggle()" class="nav-link text-dark" [routerLink]="['/requests']">Заявки</a>
+        </div>
+        <div class="side-link">
+          <a (click)="drawer.toggle()" class="nav-link text-dark" [routerLink]="['/contracts']">Договора</a>
+        </div>
+        <div class="side-link">
+          <a (click)="drawer.toggle()" class="nav-link text-dark" [routerLink]="['/services']">Услуги</a>
+        </div>      
+      </ng-template>
+      <ng-template ngSwitchCase="Администратор">
+        <div class="side-header">
+          <div><h2> Разделы </h2></div>
+          <div style="float:right;"><mat-icon style="font-size: 30px; cursor: pointer;" (click)="drawer.toggle()" [inline]="true">arrow_back_ios</mat-icon></div>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="side-link">
+          <a (click)="drawer.toggle()" class="nav-link text-dark" [routerLink]="['/addUser']">Клиенты</a>
+        </div>
+        <div class="side-link">
+          <a (click)="drawer.toggle()" class="nav-link text-dark" [routerLink]="['/recoverPass']">Восстановление паролей</a>
+        </div>
+        
+      </ng-template>
+
+      <ng-template ngSwitchCase="Медик">
+        <div class="side-header">
+          <div><h2> Разделы </h2></div>
+          <div style="float:right;"><mat-icon style="font-size: 30px; cursor: pointer;" (click)="drawer.toggle()" [inline]="true">arrow_back_ios</mat-icon></div>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="side-link">
+          <a (click)="drawer.toggle()" class="nav-link text-dark" [routerLink]="['/support']">Сопровождение</a>
+        </div>
+        <div class="side-link">
+          <a (click)="drawer.toggle()" class="nav-link text-dark" [routerLink]="['/reporting']">Отчетность</a>
+        </div>
+        
+      </ng-template>
+    </div>
+  </mat-drawer>
+
+  <div class="side-icon-div" (click)="drawer.toggle()">
+    <mat-icon class="side-icon" [inline]="true">arrow_forward_ios</mat-icon>
+  </div>
+  
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
+  
+</mat-drawer-container> -->
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>

@@ -1,0 +1,48 @@
+<header>
+  <nav
+    class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3"
+  >
+    <div class="container">
+      <a class="navbar-brand" [routerLink]="['/']">Depressed?</a>
+      <!-- <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target=".navbar-collapse"
+        aria-label="Toggle navigation"
+        [attr.aria-expanded]="isExpanded"
+        (click)="toggle()"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div
+        class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse"
+        [ngClass]="{ show: isExpanded }"
+      >
+        <ul class="navbar-nav flex-grow">
+          <div *ngIf="getUser();else toLogin">
+            {{getUser()}}
+            <button mat-button [matMenuTriggerFor]="menu"><mat-icon style="font-size: 30px;margin-bottom: 8px;">list</mat-icon></button>
+
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item>Настройки</button>
+              <mat-divider></mat-divider>
+              <button mat-menu-item (click)="quit()">Выйти</button>
+            </mat-menu>
+          </div>
+
+          <ng-template #toLogin>
+            <li
+            class="nav-item"
+            [routerLinkActive]="['link-active']"
+            [routerLinkActiveOptions]="{ exact: true }"
+            >
+              <a class="nav-link text-dark" [routerLink]="['/login']">Войти</a>
+            </li>            
+
+          </ng-template>          
+        </ul>
+      </div> -->
+    </div>
+  </nav>
+</header>
