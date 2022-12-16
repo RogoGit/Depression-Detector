@@ -42,7 +42,7 @@ class ModelViewSet(viewsets.ModelViewSet):
         data['non_depressive_text_amount'] = non_depressive_sum / all_sum
 
         return Response(
-            serializer.data,
+            data,
             status=status.HTTP_201_CREATED,
             headers=headers
         )
