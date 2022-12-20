@@ -1,6 +1,6 @@
 
 <div class="form-container">
-    <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">    
+    <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
         <h4 >Введите данные для проверки</h4>
         <mat-form-field appearance="outline" class="full-width">
         <textarea rows="8" matInput placeholder="Введите выши мыслишки тут..." formControlName="text" required> </textarea>
@@ -11,31 +11,48 @@
 
         <h4>Дата рождения</h4>
         <mat-form-field class="full-width">
-            <input matInput [matDatepicker]="picker" placeholder="Дата" formControlName="date" required>
+            <input matInput [matDatepicker]="picker" placeholder="Дата" formControlName="date_of_birth" required>
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
-            <mat-error *ngFor="let validation of validation_messages.date">
+            <mat-error *ngFor="let validation of validation_messages.date_of_birth">
               <mat-error class="error-message" *ngIf="formControlDate.hasError(validation.type) && (formControlDate.dirty || formControlDate.touched)">{{validation.message}}</mat-error>
             </mat-error>
         </mat-form-field>
-        
+
         <div class="gender-div">
             <h4>Пол</h4>
             <mat-radio-group formControlName="gender" aria-label="Select an option">
-                <mat-radio-button value="male">Мужчина</mat-radio-button>
-                <mat-radio-button value="female">Женщина</mat-radio-button>
-                <mat-radio-button value="others">Другой</mat-radio-button>
-            </mat-radio-group>        
-        </div>
-        
-        <div>
-        <button class="submit-btn" color="primary" mat-raised-button type="submit" [disabled]="!form.valid || isDisabled">
-            Отправить
-        </button>
-        <span *ngIf="formError===false" style="color: green;padding-left: 10px;">{{formMsg}}</span>
-        <span *ngIf="formError===true" style="color: red;padding-left: 10px;">{{formMsg}}</span>
+                <mat-radio-button value="M">Мужчина</mat-radio-button>
+                <mat-radio-button value="F">Женщина</mat-radio-button>
+                <mat-radio-button value="O">Другой</mat-radio-button>
+            </mat-radio-group>
         </div>
 
+        <div>
+        <button class="submit-btn" color="primary" mat-raised-button type="submit" [disabled]="!form.valid">
+            Отправить
+        </button>
+          <span *ngIf="formError==false" style="color: green;padding-left: 10px;">{{formMsg}}</span>
+          <span *ngIf="formError==true" style="color: red;padding-left: 10px;">{{formMsg}}</span>
+
+        </div>
     </form>
-    
+  <div *ngIf="result!=null">
+  <div *ngIf="result!=null" class="result">
+    <mat-icon *ngIf="!result">check_circle_outline</mat-icon>
+    <mat-icon *ngIf="result">error_outline</mat-icon>
+    <span>{{result?"Обнаружены депрессивные признаки":"Депресивные признаки не обнаружены"}}</span>
+  </div>
+  <figure class="pie-chart" id="pie">
+    <h2>Статистика по возрасту</h2>
+    <figcaption>
+      Депрессивных {{depressed}}%<span style="color:#4e79a7"></span><br>
+      Не депрессивных {{nonDepressed}}%<span style="color:#f28e2c"></span><br>
+    </figcaption>
+
+  </figure>
+  </div>
+
+
+
 </div>

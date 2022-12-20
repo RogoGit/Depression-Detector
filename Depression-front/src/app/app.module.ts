@@ -18,6 +18,7 @@ import {   MatDividerModule  } from '@angular/material/divider';
 
 /*SERVICES*/
 import {AuthenticationService} from './_services'
+import {ScoringService } from  './_services'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -32,24 +33,25 @@ import { HomeComponent } from './common/home/home.component';
     HeaderComponent,
     HomeComponent
   ],
-  imports: [    
+  imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     // BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule,            
+    ReactiveFormsModule,
     MatIconModule,
     MatButtonModule,
     MatInputModule,
     MatDatepickerModule,
-    MatNativeDateModule,      
-    MatDividerModule,    
+    MatNativeDateModule,
+    MatDividerModule,
     MatRadioModule,
   ],
   providers: [
     AuthenticationService,
+    ScoringService,
     { provide: MAT_DATE_LOCALE, useValue: 'ru-Ru' },
     { provide: 'BASE_URL', useValue: environment.apiRoot }
   ],

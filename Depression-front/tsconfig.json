@@ -3,7 +3,8 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths":{
-      "@env/*": ["src/environments/*"]
+      "@env/*": ["src/environments/*"],
+      "@angular/*": ["./node_modules/@angular/*"]
     },
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
