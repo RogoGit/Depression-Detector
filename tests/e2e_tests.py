@@ -11,7 +11,7 @@ WAIT_SEC = 30
 
 @pytest.fixture
 def setup():
-    morda_url = 'http://dumbass.sytes.net:55556'
+    morda_url = ''
     chrome_driver = webdriver.Chrome(ChromeDriverManager().install())
     yield dict(url=morda_url, driver=chrome_driver)
 
