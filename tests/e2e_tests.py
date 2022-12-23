@@ -12,7 +12,9 @@ WAIT_SEC = 30
 @pytest.fixture
 def setup():
     morda_url = ''
-    chrome_driver = webdriver.Chrome(ChromeDriverManager().install())
+    chrome_options = webdriver.ChromeOptions()
+    chrome_options.add_argument("--disable-web-security")
+    chrome_driver = webdriver.Chrome(ChromeDriverManager().install(), options=chrome_options)
     yield dict(url=morda_url, driver=chrome_driver)
 
 
@@ -46,6 +48,6 @@ class TestDepressionMorda:
                 EC.visibility_of_element_located(
                     (By.CSS_SELECTOR, 'body > app-root > div > app-home > div > div > div > span'))
             )
-            assert result_text.text == 'Депресивные признаки не обнаружены'
+            assert result_text.text == 'Обнаружены депрессивные признаки'
         except TimeoutException as e:
             assert False
